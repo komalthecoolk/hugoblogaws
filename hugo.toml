@@ -1,7 +1,7 @@
 baseURL = "/"
 languageCode = "en-us"
 title = "KK's journey to the cloud"
-theme = "LoveIt"
+theme = "hugo-clarity"
 
 # Author config
 [author]
