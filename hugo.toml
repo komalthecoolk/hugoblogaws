@@ -1,10 +1,10 @@
 baseURL = "/"
 languageCode = "en-us"
 title = "KK's journey to the cloud"
-theme = "hugo-clarity"
+theme = "LoveIt"
 
 # Author config
-[author]
+[params.author]
   name = "Komal Kanth"
   email = ""
   link = ""
