@@ -9,7 +9,7 @@ theme = "FixIt"
 
 
 # Author config
-[params.author]
+[author]
   name = "Komal Kanth"
   email = ""
   link = ""

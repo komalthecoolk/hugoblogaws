@@ -50,16 +50,6 @@
     weight = 3
     [menu.main.params]
       icon = "fa-solid fa-tags"
-  [[menu.main]]
-    identifier = "about"
-    pre = ""
-    post = ""
-    name = "About Me"
-    url = "/about"
-    title = ""
-    weight = 4
-    [menu.main.params]
-      icon = "fa-solid fa-tags"
 
 # -------------------------------------------------------------------------------------
 # Theme Core Configuration
@@ -153,7 +143,7 @@
       # URL of the LOGO
       logo = "/fixit.min.svg"
       # title name
-      name = "KK's journey to the cloud"
+      name = "My Hugo FixIt Site"
       # you can add extra information before the name (HTML format is supported), such as icons
       pre = ""
       # you can add extra information after the name (HTML format is supported), such as icons
@@ -274,7 +264,7 @@
   # FixIt 0.2.16 | CHANGED Social config about the author
   [params.social]
     GitHub = ""
-    Linkedin = "https://www.linkedin.com/in/komalkanth"
+    Linkedin = ""
     Twitter = ""
     Instagram = ""
     Facebook = ""
@@ -341,7 +331,7 @@
     BuyMeaCoffee = ""
     Linktree = ""
     QQ = ""
-    QQGroup = ""
+    QQGroup = "" # https://qun.qq.com/join.html
     Diaspora = ""
     CSDN = ""
     Discord = ""
@@ -807,7 +797,7 @@
     light = ""
     dark = ""
     height = "2px"
-
+  
   # FixIt 0.2.17 | NEW Progress bar in the top during page loading.
   # For more information: https://github.com/CodeByZach/pace
   [params.pace]
@@ -819,7 +809,7 @@
     # ["barber-shop", "big-counter", "bounce", "center-atom", "center-circle", "center-radar", "center-simple",
     # "corner-indicator", "fill-left", "flash", "flat-top", "loading-bar", "mac-osx", "material", "minimal"]
     theme = "minimal"
-
+  
   # FixIt 0.2.17 | NEW Define custom file paths
   # Create your custom files in site directory `layouts/partials/custom` and uncomment needed files below
   [params.customFilePath]
