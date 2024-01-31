@@ -1,2 +1,4 @@
-hugo version
-hugo v0.120.2-9c2b2414d231ec1bdaf3e3a030bf148a45c7aa17 windows/amd64 BuildDate=2023-10-31T16:27:18Z VendorInfo=gohugoio
+ hugo version
+hugo v0.122.0-b9a03bd59d5f71a529acb3e33f995e0ef332b3aa+extended windows/amd64 BuildDate=2024-01-26T15:54:24Z VendorInfo=gohugoio
+
+(Using Hugo Extended version)
