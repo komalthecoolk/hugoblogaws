@@ -26,7 +26,7 @@ The above image summarizes the different locations we can input variables from a
 
 To test this flow, I have some Terraform config files in a folder as shown below.
 
-{{< highlight bash >}}
+{{< highlight shell >}}
 > tree
 .
 ├── main.tf
@@ -79,7 +79,7 @@ To start off, I am providing default value for both of the input variables as pa
 
 When I execute the Terraform code, we can see that it picks up the and outputs the correct variable as defined.
 
-{{< highlight bash >}}
+{{< highlight shell >}}
 > terraform plan
 
 Changes to Outputs:
@@ -92,7 +92,7 @@ Terraform has options to  set different environmental variables in our operating
 
 First is an example of how we set the environment variables for Terraform and verify.
 
-{{< highlight bash >}}
+{{< highlight shell >}}
 > export TF_VAR_source_of_var_1=environment_variables
 > export TF_VAR_source_of_var_2=environment_variables
 > echo $TF_VAR_source_of_var_1
@@ -103,7 +103,7 @@ environment_variables
 
 Now when we run Terraform without any additional inputs, we can see that Terraform prefers the environmental variables over the default variable definitions.
 
-{{< highlight bash >}}
+{{< highlight shell >}}
 > terraform plan
 
 Changes to Outputs:
@@ -124,7 +124,7 @@ source_of_var_1 = "file_terraform.tfvars"
 
 When we execute Terraform, we can see that for the common variables present in `'variables.tf'` and `'terraform.tfvars'`, the latter is preferred but for those that are not common, Terraform falls back to the default value in `'variables.tf'` as seen below.
 
-{{< highlight bash >}}
+{{< highlight shell >}}
 > terraform plan
 
 Changes to Outputs:
@@ -146,7 +146,7 @@ source_of_var_1 = "file_secrets.auto.tfvars"
 
 The result of this on the Terraform execution is as follows.
 
-{{< highlight bash >}}
+{{< highlight shell >}}
 > terraform plan
 
 Changes to Outputs:
@@ -162,7 +162,7 @@ In cases of multiple `'*.auto.tfvars'` files, the common input variables are pic
 source_of_var_1 = "file_top_secrets.auto.tfvars"
 {{< /highlight >}}
 
-{{< highlight bash >}}
+{{< highlight shell >}}
 > terraform plan
 
 Changes to Outputs:
@@ -184,7 +184,7 @@ source_of_var_1 = "file_prod.tfvars"
 
 When we run Terraform, this value from `'prod.tfvars'` is not used by default and Terraform falls back to the next best preferences, that are `'*.auto.tfvars'` > `'terraform.tfvars'` > 'environmental variables' > 'default variable defintion', in that order.
 
-{{< highlight bash >}}
+{{< highlight shell >}}
 > terraform plan
 
 Changes to Outputs:
@@ -194,7 +194,7 @@ Changes to Outputs:
 
 When using custom vars file, we need to specify the file name as an arguement in the command line.
 
-{{< highlight bash >}}
+{{< highlight shell >}}
 > terraform plan -var-file="prod.tfvars"
 
 Changes to Outputs:
@@ -226,7 +226,7 @@ source_of_var_2 = "file_shared.tfvars"
 
  When we pass both files to Terraform as input arguments on the CLI, it uses all the variables from both files that are not common but for the common variables, it only picks the ones passed on later in the CLI command. Follow the two CLI command examples and their output to understand this.
 
-{{< highlight bash >}}
+{{< highlight shell >}}
 # Example 1: prod.tfvars first and then shared.tfvars
 > terraform plan -var-file="prod.tfvars" -var-file="shared.tfvars"
 
@@ -254,7 +254,7 @@ The current status as per the file structure we have created until now is as fol
 - Without any command line arguments we have `*.auto.tfvars` > `terraform.tfvars` > 'default variable definition'
 - With CLI arguments we have `*.tfvars` > `*.auto.tfvars` > `terraform.tfvars` > 'default variable definition'
 
-{{< highlight bash >}}
+{{< highlight shell >}}
 > terraform plan
 
 Changes to Outputs:
@@ -264,7 +264,7 @@ Changes to Outputs:
 
 I am going to manually input the same variable `source_of_var_1` on the CLI as an argument.
 
-{{< highlight bash >}}
+{{< highlight shell >}}
 > terraform plan -var="source_of_var_1=first_cli_input"
 
 Changes to Outputs:
@@ -274,7 +274,7 @@ Changes to Outputs:
 
 What if we have two manual inputs as CLI arguments"? Similar to the file inputs, the latter one takes the precedence.
 
-{{< highlight bash >}}
+{{< highlight shell >}}
 > terraform plan -var="source_of_var_1=first_cli_input" -var="source_of_var_1=second_cli_input"
 
 Changes to Outputs:
@@ -284,7 +284,7 @@ Changes to Outputs:
 
 What if we have one manual input and one `'*.tfvars'` file as CLI arguments? The same logic applies as the latter input gets precedence. A few examples to show that are below.
 
-{{< highlight bash >}}
+{{< highlight shell >}}
 > terraform plan -var="source_of_var_1=first_cli_input" -var-file="prod.tfvars"
 
 Changes to Outputs:
