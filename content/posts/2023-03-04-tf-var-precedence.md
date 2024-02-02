@@ -132,7 +132,7 @@ Changes to Outputs:
   + source_of_var_out_2 = "The source of the variable_2 is environment_variables"
 {{< /highlight >}}
 
-### Step 4: What about *.auto.tfvars files ?
+### Step 5: What about *.auto.tfvars files ?
 
 For some use cases where we want to input senstive variables such as passwords, we can move just those variables into a different kind of vars files named `'*.auto.tfvars'`. These can then be excluded from being checked into version-control/Github. Similar to the `'terraform.tfvars'` file which is automatically loaded by Terraform, all of the `'*.auto.tfvars'` in the working directory are loaded for use by Terraform at the time of execution. The variables in the `'*.auto.tfvars'` files have higher precedence than `'terraform.tfvars'`.
 
@@ -173,7 +173,7 @@ Changes to Outputs:
 As we can see, without even mentioning the names of the `'*.auto.tfvars'` anywhere, Terraform has picked up both the `'*.auto.tfvars'` files and preferred the input variable from `'top_secrets.auto.tfvars'` as explained above.
 
 
-### Step 5: Inputting the variable values via custom variables file *.tfvars
+### Step 6: Inputting the variable values via custom variables file *.tfvars
 Now we move forward and introduce the same variable `source_of_var_1` in a custom vars file called `'prod.tfvars'`. This is a custom file and is not automatically used by Terraform at the time of execution. Such files may typically be used when introducing a few variables that need to be introduced at the time deployment in some cases but not are not part of the core/base deployment. For example, when we want to separate variables belonging to different environments such as prod, dev, stage etc.
 
 {{< highlight hcl >}}
@@ -202,7 +202,7 @@ Changes to Outputs:
   + source_of_var_out_2 = "The source of the variable_2 is environment_variables"
 {{< /highlight >}}
 
-### Step 5: What happens when there are multiple custom *.tfvars files ?
+### Step 7: What happens when there are multiple custom *.tfvars files ?
 
 While specific custom `'*.tfvars` files are required to provide specific input variables for specific isolated environments like prod, dev, stage etc, sometimes we need variables that are common to all environments such as those from shared services (*DNS, DHCP, Security components etc*). For such use cases, we may have to input an additional custom vars file (`'shared.tfvars'` in our case) to contain all the shared variables.
 
@@ -246,7 +246,7 @@ Changes to Outputs:
 
 
 
-### Step 5: Inputting the variable values via CLI command
+### Step 8: Inputting the variable values via CLI command
 
 Even after organizing our different variables in the appropriate files, there may be use cases where we have to input variables via the command line invocation. This may be the case where we have just one or two variables and don't need to add them in a file or we need to input passwords at the time of execution instead of saving them in a file. Terraform allows us to do this via the `'-var'` argument. This takes a higher precedence over all the files we have discussed until now.
 
