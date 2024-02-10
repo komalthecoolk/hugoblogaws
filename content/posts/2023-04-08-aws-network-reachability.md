@@ -52,7 +52,7 @@ With a working setup, when I run the reachability analyzer from the GENERAL acco
 
 That looks clean! Now let's break something and see how the results come back. I am going to delete the route towards the DEV VPC in the PROD VPC TGW route table. This means the DEV VPC has route to PROD VPC via the TGW but the PROD does not have a route to reach the DEV VPC. Let's see what the Network Reachability Analyzer finds.
 
-![Broken Path Analysis](/images/2023-04-08-image02.png)
+![Broken Path Analysis](/images/2023-04-08-image03.png)
 
 If you notice the red icon in the screenshot above, you can notice that the tool has discovered the missing route in the exact TGW route table, just as expected. If you click on the TGW route table name, it shows you further details that will help us login to the right account and navigate straight to the entity with the problem and fix it.
 
