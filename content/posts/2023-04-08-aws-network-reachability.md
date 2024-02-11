@@ -56,4 +56,6 @@ That looks clean! Now let's break something and see how the results come back. I
 
 If you notice the red icon in the screenshot above, you can notice that the tool has discovered the missing route in the exact TGW route table, just as expected. If you click on the TGW route table name, it shows you further details that will help us login to the right account and navigate straight to the entity with the problem and fix it.
 
-There is a LOT of specific details in one place for easy visibility and troubleshooting as we can see  when I purposefully break this path. I remember the time when I used to this manually by hopping back and forth over multiple pages and sections for troubleshooting but keep in mind this is not free!
+There is a LOT of specific details in one place for easy visibility and troubleshooting as we can see  when I purposefully break this path. I remember the time when I used to this manually by hopping back and forth over multiple pages and sections for troubleshooting.
+
+I have to point out that this didn't work as well when I experimented with breaking a few other things such as when I blocked the SSH on the NACL in the DEV account. The tool did realize the communication was broken but showed me the wrong explanation and also keep in mind this is not free! There is a charge per "path analysis".
